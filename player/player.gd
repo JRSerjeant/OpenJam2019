@@ -22,8 +22,8 @@ func _process(delta):
 
 func check_pickup():
 	if Input.is_action_just_pressed("ui_select"):
-		set_process(false)
 		if $Pivot/Sprite/RayCast2D.is_colliding():
+			set_process(false)
 			print("player position = " + str(get_global_position()))
 			$Pivot/Sprite/RayCast2D.get_collider().take_pickup(self)
 
