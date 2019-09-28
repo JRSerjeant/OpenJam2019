@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://PikcUps/pickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Grid.gd" type="Script" id=2]
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://shelf/shelf.tscn" type="PackedScene" id=4]
+
+[node name="Node" type="Node"]
+
+[node name="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 385, 222 )
+
+[node name="Grid" type="TileMap" parent="."]
+cell_size = Vector2( 154, 154 )
+format = 1
+script = ExtResource( 2 )
+
+[node name="player" parent="Grid" instance=ExtResource( 3 )]
+position = Vector2( 0, 154 )
+
+[node name="shelf_root" parent="Grid" instance=ExtResource( 4 )]
+position = Vector2( -77, -77 )
+
+[node name="shelf_root2" parent="Grid" instance=ExtResource( 4 )]
+position = Vector2( 77, -77 )
+direction = 1
+sprite = 1
+
+[node name="shelf_root3" parent="Grid" instance=ExtResource( 4 )]
+position = Vector2( 74, -231 )
+direction = 1
+sprite = 2
+
+[node name="shelf_root4" parent="Grid" instance=ExtResource( 4 )]
+position = Vector2( -77, -231 )
+sprite = 3
