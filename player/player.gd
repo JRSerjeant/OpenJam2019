@@ -23,9 +23,10 @@ func _process(delta):
 func check_pickup():
 	if Input.is_action_just_pressed("ui_select"):
 		if $Pivot/Sprite/RayCast2D.is_colliding():
-			set_process(false)
-			print("player position = " + str(get_global_position()))
-			$Pivot/Sprite/RayCast2D.get_collider().take_pickup(self)
+			var collider = $Pivot/Sprite/RayCast2D.get_collider()
+			if "shelf_root" in collider.get_owner().name: 
+				set_process(false)
+				$Pivot/Sprite/RayCast2D.get_collider().take_pickup(self)
 
 			
 
@@ -46,11 +47,7 @@ func move_to(target_position):
 	$AnimationPlayer.play("walk")
 	var move_direction = (target_position - position).normalized()
 	$Tween.interpolate_property($".", "position", position, target_position, $AnimationPlayer.current_animation_length, Tween.TRANS_LINEAR, Tween.EASE_IN)
-	
-	#position = target_position
 	$Tween.start()
-	
-	# Stop the function execution until the animation finished
 	yield($AnimationPlayer, "animation_finished")
 	position = target_position
 	set_process(true)

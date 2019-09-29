@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://bucket/bucket.gd" type="Script" id=1]
+[ext_resource path="res://bucket/bucket_atlastexture.tres" type="Texture" id=2]
+[ext_resource path="res://bucket/bucket_sign_atlastexture.tres" type="Texture" id=3]
+[ext_resource path="res://PikcUps/apple_atlastexture.tres" type="Texture" id=4]
+
+[node name="bucket" type="Node2D"]
+rotation = 3.14159
+scale = Vector2( 4, 4 )
+z_index = 1
+script = ExtResource( 1 )
+type = 4
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -7, -19.25 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( -7.01556, -18.9951 )
+rotation = 3.14159
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
